@@ -7,7 +7,7 @@ npm ci
 npm run build
 archive="$(mktemp)"
 trap 'rm -f "$archive"' EXIT
-tar -czf "$archive" -C dist .
+COPYFILE_DISABLE=1 tar --no-xattrs --exclude='._*' -czf "$archive" -C dist .
 ssh "$target" "mkdir -p /opt/dev-universe-blog/site/releases/$release"
 scp "$archive" "$target:/opt/dev-universe-blog/release.tgz"
 scp deploy/compose.yaml deploy/nginx.conf "$target:/opt/dev-universe-blog/"
@@ -24,4 +24,4 @@ docker compose config --quiet
 docker compose up -d
 printf '%s\n' "$release" > deployed-release.txt
 REMOTE
-curl --fail --retry 5 --retry-delay 3 https://dev-universe.tech/ -o /dev/null
+curl --silent --show-error --fail --retry 12 --retry-all-errors --retry-delay 5 https://dev-universe.tech/ -o /dev/null
