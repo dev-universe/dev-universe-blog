@@ -1,0 +1,19 @@
+{
+  "name": "dev-universe-blog",
+  "version": "1.0.0",
+  "description": "universe의 기술 블로그",
+  "scripts": {
+    "dev": "astro dev --host 0.0.0.0",
+    "build": "astro build",
+    "preview": "astro preview --host 0.0.0.0"
+  },
+  "keywords": [],
+  "author": "",
+  "type": "module",
+  "dependencies": {
+    "@astrojs/rss": "4.0.19",
+    "@astrojs/sitemap": "3.7.4",
+    "astro": "7.3.8"
+  },
+  "private": true
+}

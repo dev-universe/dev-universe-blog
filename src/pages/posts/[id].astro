@@ -1,0 +1,8 @@
+---
+import Base from '../../layouts/Base.astro';
+import {posts,date,minutes} from '../../lib/posts';
+import {render} from 'astro:content';
+export async function getStaticPaths(){return (await posts()).map(post=>({params:{id:post.id},props:{post}}))}
+const {post}=Astro.props;const {Content,headings}=await render(post);
+---
+<Base title={post.data.title+' — DEV UNIVERSE'} description={post.data.description}><article class="wrap article"><a class="back" href="/#writing">← 모든 기록</a><header class="article-header"><span class="tag">{post.data.category}</span><h1>{post.data.title}</h1><p>{post.data.description}</p><div class="meta"><span>universe</span><span>·</span><time datetime={post.data.date.toISOString()}>{date(post.data.date)}</time><span>·</span><span>{minutes(post.body)}분 읽기</span></div></header><div class="article-grid"><div class="prose"><Content/><div class="article-end"><span>기록한 사람 · universe</span><a href="/#writing">다른 글 읽기 ↗</a></div></div><aside><p class="eyebrow">ON THIS PAGE</p><nav aria-label="목차">{headings.filter(h=>h.depth===2).map(h=><a href={'#'+h.slug}>{h.text}</a>)}</nav></aside></div></article></Base>
