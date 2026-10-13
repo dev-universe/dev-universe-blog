@@ -23,6 +23,8 @@ npm run build
 title: "글 제목"
 description: "한두 문장의 소개"
 date: 2026-10-13
+summary: "핵심 질문에 대한 답을 두세 문장으로 설명합니다."
+# updated: 2026-10-14 # 본문을 실질적으로 수정한 날짜만 입력
 category: "웹 개발"
 tags: ["JavaScript", "실험"]
 draft: true
@@ -54,3 +56,16 @@ VPS MCP 개발 환경에서는 `/workspace/blog`를 편집·빌드할 수 있습
 ## 콘텐츠
 
 첫 세 글은 블로그 시작과 개발 원칙을 소개하는 초기 콘텐츠입니다. 작성자 소개나 경력을 임의로 추가하지 않았습니다. 사용에 맞춰 자유롭게 수정하세요.
+
+## 검색 및 AI 답변에서의 발견 가능성
+
+페이지별 canonical, Open Graph/소셜 카드, WebSite·Person·BlogPosting·BreadcrumbList 구조화 데이터를 생성합니다. 소개 페이지에는 ProfilePage, 오류 페이지에는 noindex를 적용합니다. robots.txt는 검색 크롤러 접근을 허용하며 사이트맵과 RSS에는 공개 글만 포함됩니다. 별도의 AI 전용 파일이 검색 또는 인용을 보장하지는 않습니다.
+
+발행할 때 핵심 질문과 짧은 답, 재현 환경, 실제 확인 결과, 한계와 공식 출처를 본문에 남기세요. 실제로 수행하지 않은 실험이나 경력을 추가하지 마세요. 수정일은 실질적인 본문 변경에만 사용하고 URL은 유지하세요. 제목·소개·요약은 글마다 고유하게 작성합니다.
+
+```sh
+npm run build
+python3 scripts/check-seo.py
+```
+
+Search Console에서 색인 상태와 검색 실적을 확인합니다. 사이트맵 주소는 `https://dev-universe.tech/sitemap-index.xml`입니다. 검색 색인과 AI 답변의 인용은 외부 서비스가 결정하며, 배포 완료와 동일하지 않습니다.
