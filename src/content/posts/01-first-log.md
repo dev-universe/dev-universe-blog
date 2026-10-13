@@ -2,6 +2,7 @@
 title: "DEV UNIVERSE, 첫 번째 기록을 시작하며"
 description: "작은 실험을 실제 서비스로 만드는 과정. 이 블로그에서 기록하고 싶은 것들과 앞으로의 방향."
 date: 2026-10-13
+summary: "DEV UNIVERSE는 universe가 웹 개발, 서버 운영, AI 도구를 직접 다루며 남기는 기술 기록입니다. 글은 Markdown과 GitHub로 관리하고, Astro로 빌드한 정적 페이지를 VPS에서 제공합니다."
 category: "기록"
 tags: ["시작", "개발", "블로그"]
 ---
